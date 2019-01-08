@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <mobilunity translate="label" module="mobilunity_allocatedorders">
+            <label>Mobilunity</label>
+            <sort_order>110</sort_order>
+        </mobilunity>
+    </tabs>
+
+    <sections>
+        <mobilunity_allocatedorders translate="label" module="mobilunity_allocatedorders">
+            <label>Allocated Orders</label>
+            <sort_order>10</sort_order>
+            <tab>mobilunity</tab>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label" module="mobilunity_allocatedorders">
+                    <label>General Settings</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label" module="mobilunity_allocatedorders">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <threshold translate="label comment" module="mobilunity_allocatedorders">
+                            <label>Threshold (in GBP)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends>
+                                <enabled>1</enabled>
+                            </depends>
+                            <comment><![CDATA[Threshold of an order amount for account manager allocation (more than ...)]]></comment>
+                        </threshold>
+                        <use_config_mapping translate="label" module="mobilunity_allocatedorders">
+                            <label>Use Location-Manager mapping from Config</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <depends>
+                                <enabled>1</enabled>
+                            </depends>
+                            <comment><![CDATA[If "Yes" - location mapping provided below will be used (instead of the mapping from grid in "Sales -> Location Managers" menu item)]]></comment>
+                        </use_config_mapping>
+                        <location_mapping translate="label" module="mobilunity_allocatedorders">
+                            <label>Location-Manager mapping</label>
+                            <frontend_model>mobilunity_allocatedorders/system_config_form_field_location_mapping</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <depends>
+                                <use_config_mapping>1</use_config_mapping>
+                            </depends>
+                            <comment><![CDATA[One postcode area can have only one account manager; one account manger can be assigned to multiple postcode areas.]]></comment>
+                        </location_mapping>
+                    </fields>
+                </general>
+            </groups>
+        </mobilunity_allocatedorders>
+    </sections>
+</config>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<layout>
+    <adminhtml_locationmanager_index>
+        <reference name="content">
+            <block type="mobilunity_allocatedorders/adminhtml_locationmanager" name="mobilunity.locationmanager.list" />
+        </reference>
+    </adminhtml_locationmanager_index>
+
+    <adminhtml_locationmanager_grid> <!-- For AJAX grid action -->
+        <remove name="root"/>
+        <block type="mobilunity_allocatedorders/adminhtml_locationmanager_grid" name="mobilunity.locationmanager.grid" output="toHtml"/>
+    </adminhtml_locationmanager_grid>
+
+    <adminhtml_locationmanager_edit>
+        <reference name="content">
+            <block type="mobilunity_allocatedorders/adminhtml_locationmanager_edit" name="mobilunity.locationmanager.form" />
+        </reference>
+        <reference name="left">
+            <block type="mobilunity_allocatedorders/adminhtml_locationmanager_edit_tabs" name="mobilunity.locationmanager.tabs" />
+        </reference>
+    </adminhtml_locationmanager_edit>
+</layout>

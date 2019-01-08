@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <sales>
+            <children>
+                <mobilunity_allocatedorders translate="title">
+                    <title>Location Managers</title>
+                    <sort_order>200</sort_order>
+                    <action>adminhtml/locationmanager/</action>
+                </mobilunity_allocatedorders>
+            </children>
+        </sales>
+    </menu>
+
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <sales>
+                        <children>
+                            <mobilunity_allocatedorders>
+                                <title>Location Managers</title>
+                                <sort_order>200</sort_order>
+                            </mobilunity_allocatedorders>
+                        </children>
+                    </sales>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <mobilunity_allocatedorders translate="title" module="mobilunity_allocatedorders">
+                                        <title>Allocated Orders</title>
+                                        <sort_order>100</sort_order>
+                                    </mobilunity_allocatedorders>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

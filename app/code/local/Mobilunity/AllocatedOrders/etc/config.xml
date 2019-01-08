@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Mobilunity_AllocatedOrders>
+            <version>0.1.0</version>
+        </Mobilunity_AllocatedOrders>
+    </modules>
+
+    <global>
+        <blocks>
+            <mobilunity_allocatedorders>
+                <class>Mobilunity_AllocatedOrders_Block</class>
+            </mobilunity_allocatedorders>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_grid>Mobilunity_AllocatedOrders_Block_Adminhtml_Order_Grid</sales_order_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+
+        <helpers>
+            <mobilunity_allocatedorders>
+                <class>Mobilunity_AllocatedOrders_Helper</class>
+            </mobilunity_allocatedorders>
+        </helpers>
+
+        <models>
+            <mobilunity_allocatedorders>
+                <class>Mobilunity_AllocatedOrders_Model</class>
+                <resourceModel>mobilunity_allocatedorders_model_resource</resourceModel>
+            </mobilunity_allocatedorders>
+            <mobilunity_allocatedorders_model_resource>
+                <class>Mobilunity_AllocatedOrders_Model_Resource</class>
+                <entities>
+                    <order_item_manager><table>mobilunity_allocatedorders_order_item_manager</table></order_item_manager>
+                    <postcode_manager><table>mobilunity_allocatedorders_postcode_manager</table></postcode_manager>
+                </entities>
+            </mobilunity_allocatedorders_model_resource>
+        </models>
+
+        <resources>
+            <mobilunity_allocatedorders_setup>
+                <setup>
+                    <module>Mobilunity_AllocatedOrders</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </mobilunity_allocatedorders_setup>
+            <mobilunity_allocatedorders_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </mobilunity_allocatedorders_write>
+            <mobilunity_allocatedorders_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </mobilunity_allocatedorders_read>
+        </resources>
+
+        <events>
+            <checkout_submit_all_after>
+                <observers>
+                    <mobilunity_allocatedorders>
+                        <type>model</type>
+                        <class>mobilunity_allocatedorders/observer</class>
+                        <method>checkoutSubmitAfter</method>
+                    </mobilunity_allocatedorders>
+                </observers>
+            </checkout_submit_all_after>
+        </events>
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <mobilunity_allocatedorders before="Mage_Adminhtml">Mobilunity_AllocatedOrders_Adminhtml</mobilunity_allocatedorders>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <mobilunity_allocatedorders>
+                    <file>mobilunity/allocatedorders.xml</file>
+                </mobilunity_allocatedorders>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <default>
+        <mobilunity_allocatedorders>
+            <general>
+                <enabled>0</enabled>
+                <threshold>300</threshold>
+            </general>
+        </mobilunity_allocatedorders>
+    </default>
+</config>
